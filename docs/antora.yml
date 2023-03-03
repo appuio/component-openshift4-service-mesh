@@ -1,0 +1,6 @@
+name: openshift4-service-mesh
+title: openshift4-service-mesh
+version: master
+start_page: ROOT:index.adoc
+nav:
+  - modules/ROOT/partials/nav.adoc
