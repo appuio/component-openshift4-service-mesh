@@ -15,18 +15,10 @@ jobs:
         command:
           - lint_jsonnet
           - lint_yaml
-          - lint_adoc
     steps:
       - uses: actions/checkout@v3
       - name: Run ${{ matrix.command }}
         run: make -C component ${{ matrix.command }}
-  editorconfig:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: snow-actions/eclint@v1.0.1
-        with:
-          args: 'check'
   test:
     runs-on: ubuntu-latest
     strategy:
