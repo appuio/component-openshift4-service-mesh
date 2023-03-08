@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run ${{ matrix.command }}
-        run: make ${{ matrix.command }}
+        run: make -C component ${{ matrix.command }}
   editorconfig:
     runs-on: ubuntu-latest
     steps:
@@ -41,7 +41,7 @@ jobs:
         with:
           path: ${{ env.COMPONENT_NAME }}
       - name: Compile component
-        run: make test -e instance=${{ matrix.instance }}
+        run: make -C component test -e instance=${{ matrix.instance }}
   golden:
     runs-on: ubuntu-latest
     strategy:
@@ -56,4 +56,4 @@ jobs:
         with:
           path: ${{ env.COMPONENT_NAME }}
       - name: Golden diff
-        run: make golden-diff -e instance=${{ matrix.instance }}
+        run: make -C component golden-diff -e instance=${{ matrix.instance }}
