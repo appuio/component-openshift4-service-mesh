@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/node-selector: node-role.kubernetes.io/infra=
+  labels:
+    name: openshift-operators-redhat
+    openshift.io/cluster-monitoring: 'true'
+    openshift.io/user-monitoring: 'false'
+  name: openshift-operators-redhat
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  annotations: {}
+  labels:
+    name: openshift-operators-redhat
+  name: openshift-operators-redhat
+  namespace: openshift-operators-redhat

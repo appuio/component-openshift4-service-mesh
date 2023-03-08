@@ -1,0 +1,32 @@
+---
+applications:
+  - openshift4-service-mesh
+  - openshift4-operators as openshift-operators-redhat
+  - openshift4-operators as syn-openshift-distributed-tracing
+  - openshift4-operators as syn-openshift-kiali
+
+parameters:
+  components:
+    openshift4-operators:
+      url: https://github.com/appuio/component-openshift4-operators
+      version: v1.3.0
+    openshift4-service-mesh:
+      url: https://github.com/appuio/component-openshift4-service-mesh
+      version: v1.0.0
+      path: component
+
+  syn_openshift_distributed_tracing:
+    useCustomNamespace: true
+    subscription:
+      name: jaeger-product
+      channel: stable
+      spec:
+        source: redhat-operators
+
+  syn_openshift_kiali:
+    useCustomNamespace: true
+    subscription:
+      name: kiali-ossm
+      channel: stable
+      spec:
+        source: redhat-operators
