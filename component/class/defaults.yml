@@ -2,3 +2,6 @@ parameters:
   openshift4_service_mesh:
     =_metadata: {}
     namespace: syn-openshift4-service-mesh
+    operator:
+      channel: stable
+      installPlanApproval: Automatic
