@@ -1,7 +1,7 @@
 # The component name is hard-coded from the template
 COMPONENT_NAME ?= openshift4-service-mesh
 
-git_dir         ?= $(shell git rev-parse --git-common-dir)
+git_dir         ?= $(shell realpath $(shell git rev-parse --git-common-dir))
 compiled_path   ?= compiled/$(COMPONENT_NAME)/$(COMPONENT_NAME)
 root_volume     ?= -v "$${PWD}:/$(COMPONENT_NAME)"
 compiled_volume ?= -v "$${PWD}/$(compiled_path):/$(COMPONENT_NAME)"
