@@ -19,4 +19,4 @@ spec:
   installPlanApproval: Automatic
   name: servicemeshoperator
   source: redhat-operators
-  sourceNamespace: openshift-operators-redhat
+  sourceNamespace: openshift-marketplace
