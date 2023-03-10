@@ -5,3 +5,7 @@ parameters:
     operator:
       channel: stable
       installPlanApproval: Automatic
+
+    es_operator:
+      channel: stable
+      installPlanApproval: Automatic

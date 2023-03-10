@@ -1,4 +1,6 @@
 # Overwrite parameters here
+applications:
+  - openshift4-operators as openshift-operators-redhat
 
 parameters:
   kapitan:
@@ -8,6 +10,7 @@ parameters:
         output_path: vendor/lib/openshift4-operators.libsonnet
 
   openshift4_operators:
+    useCustomNamespace: false
     defaultInstallPlanApproval: Automatic
     defaultSource: openshift-operators-redhat
     defaultSourceNamespace: openshift-operators-redhat
