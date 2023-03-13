@@ -2,6 +2,54 @@
 
 This documentation covers parameters for both component `openshift4-service-mesh` and config package `openshift4-service-mesh`.
 
+== Package parameters
+
+The parent key for all of the following parameters is `pkg.openshift4_service_mesh`.
+
+=== `operator`
+
+[horizontal]
+type: object
+default:: `{"channel": "stable", "installPlanApproval": "Automatic"}`
+
+This parameter allows users to customize the upgrade channel and upgrade mode for the service mesh operator.
+This parameter is passed on to component `openshift4-service-mesh` in the component's parameter `operator`.
+
+=== `es_operator`
+
+[horizontal]
+type: object
+default:: `{"channel": "stable", "installPlanApproval": "Automatic"}`
+
+This parameter allows users to customize the upgrade channel and mode for the OpenShift ElasticSearch operator.
+This parameter is passed on to component `openshift4-service-mesh` in the component's parameter `es_operator`.
+
+[NOTE]
+====
+The ES operator is only installed by this component if it's not already installed for the OpenShift logging stack through component `openshift4-logging`.
+If the ES operator is installed through `openshift4-logging`, this parameter has no effect.
+====
+
+=== `kiali`
+
+[horizontal]
+type: object
+default:: `{"channel": "stable", "installPlanApproval": "Automatic"}`
+
+This parameter allows users to customize the upgrade channel and mode for the Kiali operator.
+
+NOTE: This operator is installed through component `openshift4-operators`.
+
+=== `distributed_tracing`
+
+[horizontal]
+type: object
+default:: `{"channel": "stable", "installPlanApproval": "Automatic"}`
+
+This parameter allows users to customize the upgrade channel and mode for the distributed tracing framework (Jaeger).
+
+NOTE: This operator is installed through component `openshift4-operators`.
+
 == Component parameters
 
 The parent key for all of the following parameters is `openshift4_service_mesh`.

@@ -1,5 +1,11 @@
 = openshift4-service-mesh
 
-openshift4-service-mesh is a Commodore component to manage openshift4-service-mesh.
+`openshift4-service-mesh` is a Commodore component and configuration package to manage the https://docs.openshift.com/container-platform/latest/service_mesh/v2x/ossm-about.html[OpenShift Service Mesh (OSSM)].
+
+We recommend installing the OpenShift service mesh through the provided configuration package.
+The package ensures that all the operators required by OpenShift service mesh are installed into separate namespaces to minimize upgrade conflicts.
+If you use the Commodore component directly, you'll have to ensure that Kiali and the distributed tracing framework (Jaeger) operators are installed yourself.
+
+When using the configuration package, users should prefer configuring the service mesh through parameter `pkg.openshift4_service_mesh`.
 
 See the xref:references/parameters.adoc[parameters] reference for further details.
