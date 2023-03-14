@@ -1,6 +1,7 @@
 # Commodore Component: openshift4-service-mesh
 
-This is a [Commodore][commodore] Component for openshift4-service-mesh.
+This is a [Commodore][commodore] Component and config package for [OpenShift
+Service Mesh][ossm].
 
 This repository is part of Project Syn.
 For documentation on Project Syn and this component, see https://syn.tools.
@@ -25,3 +26,4 @@ For information about how to contribute see [CONTRIBUTING](CONTRIBUTING.md).
 [commodore]: https://syn.tools/commodore/
 [asciidoc]: https://asciidoctor.org/
 [antora]: https://antora.org/
+[ossm]: https://docs.openshift.com/container-platform/latest/service_mesh/v2x/ossm-about.html
