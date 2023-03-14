@@ -10,7 +10,7 @@ The parent key for all of the following parameters is `openshift4_service_mesh`.
 
 [horizontal]
 type:: string
-default:: `syn-openshift4-service-mesh`
+default:: `syn-openshift-service-mesh`
 
 The namespace in which the service mesh operator is deployed.
 

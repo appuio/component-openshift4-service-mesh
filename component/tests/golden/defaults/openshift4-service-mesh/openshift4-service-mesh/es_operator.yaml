@@ -4,18 +4,18 @@ metadata:
   annotations:
     openshift.io/node-selector: node-role.kubernetes.io/infra=
   labels:
-    name: syn-openshift4-service-mesh-es-operator
+    name: syn-openshift-service-mesh-es-operator
     openshift.io/cluster-monitoring: 'true'
-  name: syn-openshift4-service-mesh-es-operator
+  name: syn-openshift-service-mesh-es-operator
 ---
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
   annotations: {}
   labels:
-    name: syn-openshift4-service-mesh-es-operator
-  name: syn-openshift4-service-mesh-es-operator
-  namespace: syn-openshift4-service-mesh-es-operator
+    name: syn-openshift-service-mesh-es-operator
+  name: syn-openshift-service-mesh-es-operator
+  namespace: syn-openshift-service-mesh-es-operator
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
@@ -24,7 +24,7 @@ metadata:
   labels:
     name: elasticsearch-operator
   name: elasticsearch-operator
-  namespace: syn-openshift4-service-mesh-es-operator
+  namespace: syn-openshift-service-mesh-es-operator
 spec:
   channel: stable
   installPlanApproval: Automatic
