@@ -1,25 +1,17 @@
-name: Pull Request
+name: Pull Request (global lints)
+
 on:
   pull_request:
     branches:
       - master
-
-env:
-  COMPONENT_NAME: openshift4-service-mesh
-
 jobs:
   linting:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        command:
-          - lint_jsonnet
-          - lint_yaml
-          - lint_adoc
     steps:
       - uses: actions/checkout@v3
-      - name: Run ${{ matrix.command }}
-        run: make ${{ matrix.command }}
+      - name: Run Asciidoc linter
+        run: make lint_adoc
+
   editorconfig:
     runs-on: ubuntu-latest
     steps:
@@ -27,33 +19,3 @@ jobs:
       - uses: snow-actions/eclint@v1.0.1
         with:
           args: 'check'
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        instance:
-          - defaults
-    defaults:
-      run:
-        working-directory: ${{ env.COMPONENT_NAME }}
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          path: ${{ env.COMPONENT_NAME }}
-      - name: Compile component
-        run: make test -e instance=${{ matrix.instance }}
-  golden:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        instance:
-          - defaults
-    defaults:
-      run:
-        working-directory: ${{ env.COMPONENT_NAME }}
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          path: ${{ env.COMPONENT_NAME }}
-      - name: Golden diff
-        run: make golden-diff -e instance=${{ matrix.instance }}
