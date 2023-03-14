@@ -23,6 +23,23 @@ local operatorlib = import 'lib/openshift4-operators.libsonnet';
 
 // Define outputs below
 {
+  namespace: kube.Namespace(params.namespace) {
+    metadata+: {
+      annotations+: {
+        // allow istio cni pods to be scheduled on all nodes.
+        // TODO(sg): might be nicer to have a tighter node selector, but
+        // removing the annotation completely to restrict the operator to app
+        // nodes changes the daemonset behavior and messes up pod scheduling.
+        'openshift.io/node-selector': '',
+      },
+      labels+: {
+        // include namespace in cluster monitoring
+        'openshift.io/cluster-monitoring': 'true',
+        // ignore namespace in user-workload monitoring
+        'openshift.io/user-monitoring': 'false',
+      },
+    },
+  },
   [if needs_es_operator then 'es_operator']: [
     kube.Namespace(es_operator_ns) {
       metadata+: {
