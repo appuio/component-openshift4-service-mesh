@@ -3,8 +3,8 @@ kind: OperatorGroup
 metadata:
   annotations: {}
   labels:
-    name: syn-openshift4-service-mesh
-  name: syn-openshift4-service-mesh
+    name: syn-openshift-service-mesh
+  name: syn-openshift-service-mesh
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
@@ -13,7 +13,7 @@ metadata:
   labels:
     name: servicemeshoperator
   name: servicemeshoperator
-  namespace: syn-openshift4-service-mesh
+  namespace: syn-openshift-service-mesh
 spec:
   channel: stable
   installPlanApproval: Automatic
