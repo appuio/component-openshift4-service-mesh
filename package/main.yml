@@ -27,7 +27,7 @@ parameters:
       version: v1.3.0
     openshift4-service-mesh:
       url: https://github.com/appuio/component-openshift4-service-mesh
-      version: v1.0.0
+      version: v1.0.1
       path: component
 
   syn_openshift_distributed_tracing:
@@ -48,6 +48,6 @@ parameters:
         source: redhat-operators
         installPlanApproval: ${pkg.openshift4_service_mesh:kiali:installPlanApproval}
 
-  openshift_service_mesh:
+  openshift4_service_mesh:
     operator: ${pkg.openshift4_service_mesh:operator}
     es_operator: ${pkg.openshift4_service_mesh:es_operator}
