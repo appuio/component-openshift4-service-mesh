@@ -1,9 +1,3 @@
 ---
 classes:
-  - ..main
-
-parameters:
-  # TODO: remove before merging
-  components:
-    openshift4-service-mesh:
-      version: master
+  - ..preview

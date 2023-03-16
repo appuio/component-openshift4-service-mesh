@@ -1,0 +1,15 @@
+= Package classes
+
+The `openshift4-service-mesh` configuration package provides the following classes:
+
+
+`main`::
+This class provides the default configuration for installing OpenShift service mesh.
+It configures two `openshift4-operators` instances to manage the Kiali and distributed tracing (Jaeger) operators.
+Additionally, it configures the `openshift4-service-mesh` component.
+See the xref:references/parameters.adoc#_package_parameters[package parameters reference] for details on how to configure the package.
+
+`preview`::
+This class includes the `main` class, and overrides the openshift4-service-mesh component version with `master`.
++
+IMPORTANT: This class should never be included on a production cluster.
