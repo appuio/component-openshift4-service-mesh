@@ -1,0 +1,8 @@
+# Include this class only on test clusters
+classes:
+  - .main
+
+parameters:
+  components:
+    openshift4-service-mesh:
+      version: master

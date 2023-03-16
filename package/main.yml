@@ -1,0 +1,53 @@
+---
+applications:
+  - openshift4-service-mesh
+  - openshift4-operators as openshift-operators-redhat
+  - openshift4-operators as syn-openshift-distributed-tracing
+  - openshift4-operators as syn-openshift-kiali
+
+parameters:
+  ## Package parameters, users should prefer to configure the package through this key.
+  pkg.openshift4_service_mesh:
+    operator:
+      channel: stable
+      installPlanApproval: Automatic
+    es_operator:
+      channel: stable
+      installPlanApproval: Automatic
+    distributed_tracing:
+      channel: stable
+      installPlanApproval: Automatic
+    kiali:
+      channel: stable
+      installPlanApproval: Automatic
+
+  components:
+    openshift4-operators:
+      url: https://github.com/appuio/component-openshift4-operators
+      version: v1.3.0
+    openshift4-service-mesh:
+      url: https://github.com/appuio/component-openshift4-service-mesh
+      version: v1.0.0
+      path: component
+
+  syn_openshift_distributed_tracing:
+    useCustomNamespace: true
+    subscription:
+      name: jaeger-product
+      channel: ${pkg.openshift4_service_mesh:distributed_tracing:channel}
+      spec:
+        source: redhat-operators
+        installPlanApproval: ${pkg.openshift4_service_mesh:distributed_tracing:installPlanApproval}
+
+  syn_openshift_kiali:
+    useCustomNamespace: true
+    subscription:
+      name: kiali-ossm
+      channel: ${pkg.openshift4_service_mesh:distributed_tracing:channel}
+      spec:
+        source: redhat-operators
+        installPlanApproval: ${pkg.openshift4_service_mesh:kiali:installPlanApproval}
+
+  openshift_service_mesh:
+    operator: ${pkg.openshift4_service_mesh:operator}
+    es_operator: ${pkg.openshift4_service_mesh:es_operator}

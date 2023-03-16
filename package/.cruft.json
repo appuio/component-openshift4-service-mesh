@@ -1,0 +1,20 @@
+{
+  "template": "https://github.com/projectsyn/commodore-config-package-template.git",
+  "commit": "f8f2fba77ad07b9af9bf56dbb5c5646044c347bb",
+  "checkout": "main",
+  "context": {
+    "cookiecutter": {
+      "name": "openshift4-service-mesh",
+      "slug": "openshift4-service-mesh",
+      "test_cases": "defaults",
+      "add_golden": "y",
+      "copyright_holder": "VSHN AG <info@vshn.ch>",
+      "copyright_year": "2023",
+      "github_owner": "appuio",
+      "__github_name": "package-openshift4-service-mesh",
+      "__github_url": "https://github.com/appuio/package-openshift4-service-mesh",
+      "_template": "https://github.com/projectsyn/commodore-config-package-template.git"
+    }
+  },
+  "directory": null
+}
