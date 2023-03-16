@@ -1,19 +1,43 @@
 = Parameters
 
+This documentation covers parameters for both component `openshift4-service-mesh` and config package `openshift4-service-mesh`.
+
+== Component parameters
+
 The parent key for all of the following parameters is `openshift4_service_mesh`.
 
-== `namespace`
+=== `namespace`
 
 [horizontal]
 type:: string
-default:: `syn-openshift4-service-mesh`
+default:: `syn-openshift-service-mesh`
 
-The namespace in which to deploy this component.
+The namespace in which the service mesh operator is deployed.
+
+=== `operator`
+
+[horizontal]
+type: object
+default:: `{"channel": "stable", "installPlanApproval": "Automatic"}`
+
+This parameter allows users to customize the upgrade channel and upgrade mode for the service mesh operator.
 
 
-== Example
+=== `es_operator`
 
-[source,yaml]
-----
-namespace: example-namespace
-----
+[horizontal]
+type: object
+default:: `{"channel": "stable", "installPlanApproval": "Automatic"}`
+
+This parameter allows users to customize the upgrade channel and mode for the OpenShift ElasticSearch operator.
+
+[NOTE]
+====
+The ES operator is only installed by this component if it's not already installed for the OpenShift logging stack through component `openshift4-logging`.
+If the ES operator is installed through `openshift4-logging`, this parameter has no effect.
+====
+
+[NOTE]
+====
+This component installs the ES operator in namespace `<namespace>-es-operator`, where the value of the component parameter `namespace` is used for `<namespace>`.
+====

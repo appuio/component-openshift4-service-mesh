@@ -26,7 +26,12 @@ insert_final_newline = false
 indent_style = tab
 
 ; Ignore golden test outputs
-[tests/golden/**]
+[/component/tests/golden/**]
+indent_size = unset
+indent_style = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+[/package/tests/golden/**]
 indent_size = unset
 indent_style = unset
 insert_final_newline = unset
