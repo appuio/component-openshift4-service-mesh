@@ -16,7 +16,7 @@ metadata:
   namespace: syn-openshift-service-mesh
 spec:
   channel: stable
-  installPlanApproval: Automatic
+  installPlanApproval: Manual
   name: servicemeshoperator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
