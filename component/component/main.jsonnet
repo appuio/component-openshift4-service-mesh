@@ -17,8 +17,6 @@ local needs_es_operator =
   });
   !logging_params.components.elasticsearch.enabled;
 
-local es_operator_ns = '%s-es-operator' % params.namespace;
-
 local operatorlib = import 'lib/openshift4-operators.libsonnet';
 
 // Define outputs below
@@ -41,24 +39,8 @@ local operatorlib = import 'lib/openshift4-operators.libsonnet';
     },
   },
   [if needs_es_operator then 'es_operator']: [
-    kube.Namespace(es_operator_ns) {
-      metadata+: {
-        annotations+: {
-          'openshift.io/node-selector': 'node-role.kubernetes.io/infra=',
-        },
-        labels+: {
-          // include namespace in cluster monitoring
-          'openshift.io/cluster-monitoring': 'true',
-        },
-      },
-    },
-    operatorlib.OperatorGroup(es_operator_ns) {
-      metadata+: {
-        namespace: es_operator_ns,
-      },
-    },
     operatorlib.namespacedSubscription(
-      es_operator_ns,
+      'openshift-operators-redhat',
       'elasticsearch-operator',
       params.es_operator.channel,
       source='redhat-operators',
