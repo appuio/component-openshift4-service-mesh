@@ -8,14 +8,14 @@ jobs:
   linting:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Run Asciidoc linter
         run: make lint_adoc
 
   editorconfig:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: snow-actions/eclint@v1.0.1
         with:
           args: 'check'

@@ -16,7 +16,7 @@ jobs:
           - lint_jsonnet
           - lint_yaml
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Run ${{ matrix.command }}
         run: make -C component ${{ matrix.command }}
   test:
@@ -29,7 +29,7 @@ jobs:
       run:
         working-directory: ${{ env.COMPONENT_NAME }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           path: ${{ env.COMPONENT_NAME }}
       - name: Compile component
@@ -44,7 +44,7 @@ jobs:
       run:
         working-directory: ${{ env.COMPONENT_NAME }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           path: ${{ env.COMPONENT_NAME }}
       - name: Golden diff
