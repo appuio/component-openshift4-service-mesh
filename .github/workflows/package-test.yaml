@@ -16,7 +16,7 @@ jobs:
           - lint_yaml
           - lint_commodore
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Run ${{ matrix.command }}
         run: make -C package ${{ matrix.command }}
   test:
@@ -29,7 +29,7 @@ jobs:
       run:
         working-directory: ${{ env.PACKAGE_NAME }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           path: ${{ env.PACKAGE_NAME }}
       - name: Compile component
@@ -44,7 +44,7 @@ jobs:
       run:
         working-directory: ${{ env.PACKAGE_NAME }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           path: ${{ env.PACKAGE_NAME }}
       - name: Golden diff
