@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/projectsyn/commodore-config-package-template.git",
-  "commit": "f8f2fba77ad07b9af9bf56dbb5c5646044c347bb",
+  "commit": "aa3a125ecdaf7a1cd48f6440abcda6561e1298b5",
   "checkout": "main",
   "context": {
     "cookiecutter": {
