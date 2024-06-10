@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   annotations:
-    openshift.io/node-selector: node-role.kubernetes.io/infra=
+    openshift.io/node-selector: ''
   labels:
     name: syn-openshift-kiali
     openshift.io/cluster-monitoring: 'false'
@@ -28,6 +28,14 @@ metadata:
   namespace: syn-openshift-kiali
 spec:
   channel: stable
+  config:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: node-role.kubernetes.io/infra
+                  operator: Exists
   installPlanApproval: Automatic
   name: kiali-ossm
   source: redhat-operators

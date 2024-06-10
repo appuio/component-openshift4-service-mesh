@@ -16,6 +16,14 @@ metadata:
   namespace: syn-openshift-service-mesh
 spec:
   channel: stable
+  config:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: node-role.kubernetes.io/infra
+                  operator: Exists
   installPlanApproval: Manual
   name: servicemeshoperator
   source: redhat-operators
