@@ -3,6 +3,9 @@ classes:
   - ..preview
 
 parameters:
+  facts:
+    distribution: openshift4
+
   pkg.openshift4_service_mesh:
     operator:
       installPlanApproval: Manual
