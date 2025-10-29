@@ -15,7 +15,10 @@ local needs_es_operator =
       },
     },
   });
-  !logging_params.components.elasticsearch.enabled;
+  // Only install ES operator if requested via component parameter and not
+  // already installed through openshift4-logging.
+  params.es_operator.enabled &&
+  !std.get(logging_params.components, 'elasticsearch', { enabled: false }).enabled;
 
 local operatorlib = import 'lib/openshift4-operators.libsonnet';
 

@@ -17,6 +17,7 @@ metadata:
     name: syn-openshift-kiali
   name: syn-openshift-kiali
   namespace: syn-openshift-kiali
+spec: {}
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription

@@ -19,9 +19,10 @@ This parameter is passed on to component `openshift4-service-mesh` in the compon
 
 [horizontal]
 type: object
-default:: `{"channel": "stable", "installPlanApproval": "Automatic"}`
+default:: `{"enabled": true, "channel": "stable", "installPlanApproval": "Automatic"}`
 
 This parameter allows users to customize the upgrade channel and mode for the OpenShift ElasticSearch operator.
+Additionally, this parameter allows users to disable the OpenShift ElasticSearch operator.
 This parameter is passed on to component `openshift4-service-mesh` in the component's parameter `es_operator`.
 
 [NOTE]

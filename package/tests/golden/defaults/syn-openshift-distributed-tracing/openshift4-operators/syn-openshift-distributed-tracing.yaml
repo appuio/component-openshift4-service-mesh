@@ -17,6 +17,7 @@ metadata:
     name: syn-openshift-distributed-tracing
   name: syn-openshift-distributed-tracing
   namespace: syn-openshift-distributed-tracing
+spec: {}
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription

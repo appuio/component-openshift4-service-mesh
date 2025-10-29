@@ -1,11 +1,14 @@
 parameters:
   openshift4_service_mesh:
-    =_metadata: {}
+    =_metadata:
+      multi_tenant: true
+
     namespace: syn-openshift-service-mesh
     operator:
       channel: stable
       installPlanApproval: Automatic
 
     es_operator:
+      enabled: true
       channel: stable
       installPlanApproval: Automatic
