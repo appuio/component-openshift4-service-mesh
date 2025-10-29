@@ -7,5 +7,6 @@ parameters:
       installPlanApproval: Automatic
 
     es_operator:
+      enabled: true
       channel: stable
       installPlanApproval: Automatic
