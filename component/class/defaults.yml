@@ -1,6 +1,8 @@
 parameters:
   openshift4_service_mesh:
-    =_metadata: {}
+    =_metadata:
+      multi_tenant: true
+
     namespace: syn-openshift-service-mesh
     operator:
       channel: stable
