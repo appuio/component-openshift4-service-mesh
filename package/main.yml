@@ -28,7 +28,7 @@ parameters:
       version: v1.6.1
     openshift4-service-mesh:
       url: https://github.com/appuio/component-openshift4-service-mesh
-      version: v1.0.1
+      version: v1.2.0
       path: component
 
   syn_openshift_distributed_tracing:
