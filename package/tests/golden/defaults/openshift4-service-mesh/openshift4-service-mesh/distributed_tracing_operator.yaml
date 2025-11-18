@@ -5,7 +5,7 @@ metadata:
     openshift.io/node-selector: ''
   labels:
     name: syn-openshift-distributed-tracing
-    openshift.io/cluster-monitoring: 'false'
+    openshift.io/cluster-monitoring: 'true'
     openshift.io/user-monitoring: 'false'
   name: syn-openshift-distributed-tracing
 ---
@@ -17,7 +17,6 @@ metadata:
     name: syn-openshift-distributed-tracing
   name: syn-openshift-distributed-tracing
   namespace: syn-openshift-distributed-tracing
-spec: {}
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
