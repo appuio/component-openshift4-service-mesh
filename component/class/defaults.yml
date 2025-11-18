@@ -12,3 +12,9 @@ parameters:
       enabled: true
       channel: stable
       installPlanApproval: Automatic
+
+    distributed_tracing_operator:
+      enabled: true
+      namespace: syn-openshift-distributed-tracing
+      channel: stable
+      installPlanApproval: Automatic
