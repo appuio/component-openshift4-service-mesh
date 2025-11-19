@@ -2,7 +2,6 @@
 applications:
   - openshift4-service-mesh
   - openshift4-operators as openshift-operators-redhat
-  - openshift4-operators as syn-openshift-distributed-tracing
   - openshift4-operators as syn-openshift-kiali
 
 parameters:
@@ -16,6 +15,7 @@ parameters:
       channel: stable
       installPlanApproval: Automatic
     distributed_tracing:
+      enabled: true
       channel: stable
       installPlanApproval: Automatic
     kiali:
@@ -31,15 +31,6 @@ parameters:
       version: v1.2.0
       path: component
 
-  syn_openshift_distributed_tracing:
-    useCustomNamespace: true
-    subscription:
-      name: jaeger-product
-      channel: ${pkg.openshift4_service_mesh:distributed_tracing:channel}
-      spec:
-        source: redhat-operators
-        installPlanApproval: ${pkg.openshift4_service_mesh:distributed_tracing:installPlanApproval}
-
   syn_openshift_kiali:
     useCustomNamespace: true
     subscription:
@@ -52,3 +43,4 @@ parameters:
   openshift4_service_mesh:
     operator: ${pkg.openshift4_service_mesh:operator}
     es_operator: ${pkg.openshift4_service_mesh:es_operator}
+    distributed_tracing_operator: ${pkg.openshift4_service_mesh:distributed_tracing}
