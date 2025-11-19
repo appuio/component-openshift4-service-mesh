@@ -45,11 +45,9 @@ NOTE: This operator is installed through component `openshift4-operators`.
 
 [horizontal]
 type: object
-default:: `{"channel": "stable", "installPlanApproval": "Automatic"}`
+default:: `{"enabled": true, "channel": "stable", "installPlanApproval": "Automatic"}`
 
 This parameter allows users to customize the upgrade channel and mode for the distributed tracing framework (Jaeger).
-
-NOTE: This operator is installed through component `openshift4-operators`.
 
 == Component parameters
 
@@ -76,7 +74,7 @@ This parameter allows users to customize the upgrade channel and upgrade mode fo
 
 [horizontal]
 type: object
-default:: `{"channel": "stable", "installPlanApproval": "Automatic"}`
+default:: `{"enabled": true, "channel": "stable", "installPlanApproval": "Automatic"}`
 
 This parameter allows users to customize the upgrade channel and mode for the OpenShift ElasticSearch operator.
 
@@ -86,7 +84,15 @@ The ES operator is only installed by this component if it's not already installe
 If the ES operator is installed through `openshift4-logging`, this parameter has no effect.
 ====
 
+=== `distributed_tracing_operator`
+
+[horizontal]
+type: object
+default:: `{"enabled": true, "channel": "stable", "installPlanApproval": "Automatic"}`
+
+This parameter allows users to customize the upgrade channel and mode for the distributed tracing framework (Jaeger).
+
 [NOTE]
 ====
-This component installs the ES operator in namespace `<namespace>-es-operator`, where the value of the component parameter `namespace` is used for `<namespace>`.
+This component installs the Jaeger operator in namespace `<namespace>-jaeger-operator`, where the value of the component parameter `namespace` is used for `<namespace>`.
 ====

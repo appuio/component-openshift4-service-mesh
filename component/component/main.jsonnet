@@ -20,6 +20,8 @@ local needs_es_operator =
   params.es_operator.enabled &&
   !std.get(logging_params.components, 'elasticsearch', { enabled: false }).enabled;
 
+local needs_dt_operator = params.distributed_tracing_operator.enabled;
+
 local operatorlib = import 'lib/openshift4-operators.libsonnet';
 
 // Define outputs below
@@ -48,6 +50,33 @@ local operatorlib = import 'lib/openshift4-operators.libsonnet';
       params.es_operator.channel,
       source='redhat-operators',
       installPlanApproval=params.es_operator.installPlanApproval,
+    ),
+  ],
+  [if needs_dt_operator then 'distributed_tracing_operator']: [
+    kube.Namespace(params.distributed_tracing_operator.namespace) {
+      metadata+: {
+        annotations+: {
+          'openshift.io/node-selector': '',
+        },
+        labels+: {
+          // include namespace in cluster monitoring
+          'openshift.io/cluster-monitoring': 'true',
+          // ignore namespace in user-workload monitoring
+          'openshift.io/user-monitoring': 'false',
+        },
+      },
+    },
+    operatorlib.OperatorGroup(params.distributed_tracing_operator.namespace) {
+      metadata+: {
+        namespace: params.distributed_tracing_operator.namespace,
+      },
+    },
+    operatorlib.namespacedSubscription(
+      params.distributed_tracing_operator.namespace,
+      'jaeger-product',
+      params.distributed_tracing_operator.channel,
+      source='redhat-operators',
+      installPlanApproval=params.distributed_tracing_operator.installPlanApproval,
     ),
   ],
   operator: [
