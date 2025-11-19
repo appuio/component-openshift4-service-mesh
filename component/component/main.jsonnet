@@ -59,8 +59,8 @@ local operatorlib = import 'lib/openshift4-operators.libsonnet';
           'openshift.io/node-selector': '',
         },
         labels+: {
-          // ignore namespace in cluster monitoring
-          'openshift.io/cluster-monitoring': 'false',
+          // include namespace in cluster monitoring
+          'openshift.io/cluster-monitoring': 'true',
           // ignore namespace in user-workload monitoring
           'openshift.io/user-monitoring': 'false',
         },
